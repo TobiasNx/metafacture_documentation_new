@@ -149,6 +149,23 @@ Not yet supported is alteration.
 
 Besides path wildcards there are array/list wildcards that are used to refrence specific elements or all elements in an array. `g[].*` adresses all strings in the array `g[]`. `g[].$append` would refrence a new element in the array at the end of the array. `g[].$last` refrences the last element in an array.
 
+## Cleaning up the transformation
+
+Since FIX is not constructing a new record stream but is manipulating the existing record you usually clean up after you transform the data. There are functions to kick out all unnecessary elements an kick out all empty elements.
+
+e.g.: if you transform MARC21 to JSON but you want to keep only certain elements that you created. you state them in a retain function:
+
+```
+retain("all",
+   element",
+   "that",
+   "I",
+   "want")
+```
+This function only keeps all the elements that I wanted. At the moment this only works with highlevel elements.
+
+`vacuum()` deletes all emtpy elements.
+
 ## Defining Macros
 
 Macros can be defined with the `put_macro`-Bind and use the same parameter
@@ -173,23 +190,6 @@ call_macro("concat-up", source_field:"data2", target_field:"Data2")
 In this case `target_field` and `source_field` serve as a parameter (the name is arbitrary). In the macro definition itsel, the parameters are addressed by `$[target_field]` and `$[source_field]`. 
 
 Parameters are scoped, which means that the ones provided with the `call_macro` function shadow global ones. Macros cannot be nested.
-
-## Cleaning up the transformation
-
-Since FIX is not constructing a new record stream but is manipulating the existing record you usually clean up after you transform the data. There are functions to kick out all unnecessary elements an kick out all empty elements.
-
-e.g.: if you transform MARC21 to JSON but you want to keep only certain elements that you created. you state them in a retain function:
-
-```
-retain("all",
-   element",
-   "that",
-   "I",
-   "want")
-```
-This function only keeps all the elements that I wanted. At the moment this only works with highlevel elements.
-
-`vacuum()` deletes all emtpy elements.
 
 
 ## Splitting Fixes for Reuse
