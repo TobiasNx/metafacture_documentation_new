@@ -11,12 +11,12 @@ __________________
 
 ## Using Metafacture via playground or CLI
 
-While working with the playground or the command line you only need Flux and the transformation module Fix. No JAVA-Code is necessary!
+While working with the playground or the command line you only need [Flux](https://github.com/TobiasNx/metafacture_documentation_new/blob/main/Home.md#flux) and the transformation module [Fix](https://github.com/TobiasNx/metafacture_documentation_new/blob/main/Home.md#fix). No JAVA-Code is necessary!!!
 Have a look here for [Getting started](https://github.com/TobiasNx/metafacture_documentation_new/blob/fcb2103acc3216dc39de5c6f05f2f481d4ec6126/Getting%20Started.md).
 
 ## Framework for JAVA-Integration/Development
 
-If you plan to use Metafacture as a Java library or if you wish to add commands to Flux. You should get familar with the Framework.
+If you plan to use Metafacture as a Java library or if you wish to add commands to Flux. You should get familar with the [Framework](https://github.com/TobiasNx/metafacture_documentation_new/blob/main/Home.md#framework).
 
 __________________
 
@@ -28,7 +28,7 @@ For more information on how to use Flux, see the [Flux User Guide](https://githu
 
 ## FIX
 
-Metafix is a domain specific language for metadata transformation based on Catmandu FIX. The FIX object performing the transformation is used as part of a processing pipeline. If you are using the Flux scripting language to build and run pipelines, use the `fix` command. If you are using Metafacture as a Java library, just create a Metamorph object and add it to your pipeline (see also the Framework User Guide).
+Metafix is a domain specific language for metadata transformation based on Catmandu FIX. The FIX object performing the transformation is used as part of a processing pipeline. If you are using the Flux scripting language to build and run pipelines, use the `fix` command. If you are using Metafacture as a Java library, just create a Metafix object and add it to your pipeline (see also the [Framework User Guide](https://github.com/TobiasNx/metafacture_documentation_new/blob/main/Home.md#framework)).
 
 The transformation itself is declared in a fix-object which can be a file. For more information on how to declare transformations see [Metafix User Guide](https://github.com/TobiasNx/metafacture_documentation_new/blob/fc9eb592bc42c81a141ded694fb81395e55d9675/Fix%20user%20guide.md).
 
