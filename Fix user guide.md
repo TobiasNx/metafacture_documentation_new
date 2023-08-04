@@ -64,13 +64,13 @@ end
 
 ```
 
-Functions are used to add, change, remove or otherwise manipulate elements.
+**Functions** are used to add, change, remove or otherwise manipulate elements.
 
-Conditionals are used to control the processing of function so that they are not process with every workflow but only under certain conditions.
+**Conditionals** are used to control the processing of function so that they are not process with every workflow but only under certain conditions.
 
-Selectors can be used as hghlevel filter to filter the records you want.
+**Selectors** can be used as hghlevel filter to filter the records you want.
 
-Binds are wrappers for one or more fixes. They give extra control functionality for fixes such as loops.
+**Binds** are wrappers for one or more fixes. They give extra control functionality for fixes such as loops.
 All binds have the syntax:
 ```PERL
 do Bind(params,…)
