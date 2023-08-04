@@ -4,7 +4,8 @@ This document provides an introduction to the Metafacture Fix language (short: M
 Metafacture Fix is a transformation module that can be used in a workflow, for this you have to use this in your pipeline:
 - when using the FLUX: 
 - - address the `fix`-module
-- - ```PERL
+- - 
+```PERL
    infile
    | open-file
    | as-lines
