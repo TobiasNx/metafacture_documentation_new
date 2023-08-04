@@ -150,30 +150,28 @@ Besides path wildcards there are array/list wildcards that are used to refrence 
 
 ## Defining Macros
 
-Macros can be defined within the `<macros>` tag and use the same parameter
-mechanism as code within the `<rules>` tag. 
-Macros are called with the `<call-macro>` tag. Attributes
-of the tag are used as parameters:
+Macros can be defined with the `put_macro`-Bind and use the same parameter
+mechanism later. 
+Macros are called with the `call_macro` function. Attributes
+of the function are used as parameters:
 
-```xml
-<macros>
-   <macro name="concat-up">
-      <concat delimiter=", " name="$[literal_name]">
-         <data source="$[literal_name]" >
-            <case to="upper"/>
-         </data>
-      </concat>
-   </macro>
-</macros>
-<rules>
-   <call-macro name="concat-up" literal_name="data1"/>
-   <call-macro name="concat-up" literal_name="data2"/>
-</rules>
-```
+```PERL
+do put_macro("concat-up")
+   set_array("$[target_field]")
+   copy_field("$[source_field]","$[target_field].$append")
+   case("$[target_field].*")
+   join_field("$[target_field]",", ")
+end
 
-In this case `literal_name` serves as a parameter (the name is arbitrary). In the macro definition itsel, the parameter is addressed by `$[literal_name]`. 
 
-Parameters are scoped, which means that the ones provided with the `call-macro` tag shadow global ones. Macros cannot be nested.
+   
+call_macro("concat-up", source_field:"data1", target_field:"Data1")
+call_macro("concat-up", source_field:"data2", target_field:"Data2")
+``````
+
+In this case `target_field` and `source_field` serve as a parameter (the name is arbitrary). In the macro definition itsel, the parameters are addressed by `$[target_field]` and `$[source_field]`. 
+
+Parameters are scoped, which means that the ones provided with the `call_macro` function shadow global ones. Macros cannot be nested.
 
 ## Cleaning up the transformation
 
